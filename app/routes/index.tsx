@@ -40,7 +40,7 @@ export default function Index() {
           <h2>Highscore</h2>
           <ul>
             {scores.map(user => 
-              <li key={user.UserId}> {user.UserName} </li>
+              <li key={user.UserId}> {user.UserName} {user.Rating} </li>
             )}
           </ul>
         </div>

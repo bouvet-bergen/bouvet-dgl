@@ -14,14 +14,15 @@ export const action: ActionFunction = async ({request}) => {
     const courseName = formData.get("courseName"); 
     const parRating = formData.get("parRating"); 
     const ratingDiff = formData.get("ratingDiff"); 
+    const parScore = formData.get('parScore');
     const id = formData.get("id"); 
 
-    if(typeof courseId === "string" && typeof courseName === "string" && typeof parRating === "string" && typeof ratingDiff === "string"){
+    if(typeof courseId === "string" && typeof courseName === "string" && typeof parRating === "string" && typeof ratingDiff === "string" && typeof parScore === 'string'){
         if(request.method === "POST"){
-            await prisma.course.create({ data: { courseId, name: courseName, parRating: parseInt(parRating), ratingDiff: parseInt(ratingDiff) } })
+            await prisma.course.create({ data: { courseId, name: courseName, parRating: parseInt(parRating), ratingDiff: parseInt(ratingDiff), parScore: parseInt(parScore) } })
         }
         if(request.method === "PATCH" && typeof id === "string"){
-            await prisma.course.update({where: { id }, data: { courseId, name: courseName, parRating: parseInt(parRating), ratingDiff: parseInt(ratingDiff) }})
+            await prisma.course.update({where: { id }, data: { courseId, name: courseName, parRating: parseInt(parRating), ratingDiff: parseInt(ratingDiff), parScore: parseInt(parScore) }})
         }
     }
 

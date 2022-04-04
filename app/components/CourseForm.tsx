@@ -21,6 +21,10 @@ export default function CoursesForm({ course, method }: CourseFormProps){
                 <input id="courseName" name="courseName" defaultValue={course?.name ?? ''}></input>
             </div>
             <div>
+                <label htmlFor='parScore'> Par score </label>
+                <input id="parScore" name="parScore" defaultValue={course?.parScore ?? ''}></input>
+            </div>
+            <div>
                 <label htmlFor='parRating'> Par rating </label>
                 <input id="parRating" name="parRating" defaultValue={course?.parRating ?? ''}></input>
             </div>

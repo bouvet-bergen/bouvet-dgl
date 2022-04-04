@@ -29,6 +29,7 @@ export type Result = {
     PreviousRoundsSum?: any;
     PreviousRoundsDiff?: any;
     OrderNumber: number;
+    CourseId: string;
 }
 
 export type Track = {
@@ -61,6 +62,7 @@ export type Score = {
     UserId: string; 
     Scores: Result[]; 
     UserName: string; 
+    Rating?: number;
 }
 
 export type FrontPageData = {

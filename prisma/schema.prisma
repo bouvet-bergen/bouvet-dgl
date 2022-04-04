@@ -30,6 +30,7 @@ model Course {
   name        String
   parRating   Int
   ratingDiff  Int
+  parScore    Int
 }
 
 model Round {

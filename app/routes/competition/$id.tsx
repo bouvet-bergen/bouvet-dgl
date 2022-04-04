@@ -22,7 +22,7 @@ export default function Index() {
   return (
     <main>
       <header>
-        <h1> Bouvet DGS 🥏 </h1>
+        <h1> Bouvet DGL 🥏 </h1>
         <div className="user">{user ? user.email : ''}</div>
         <Link to={user ? "/logout" : "/login"} > {user ? "Logout" : "Login"} </Link>
       </header>

@@ -10,7 +10,7 @@ import {
 } from "remix";
 
 import { createUserSession, getUserId } from "~/session.server";
-import { verifyLogin } from "~/models/user.server";
+import { verifyLogin } from "~/api/user.server";
 import { validateEmail } from "~/utils";
 
 export const loader: LoaderFunction = async ({ request }) => {

@@ -1,0 +1,40 @@
+.par{
+    text-align: center;
+}
+
+.blank{
+    border: none;
+}
+
+table{
+    border-spacing: 0;
+    font-size: 1.25rem; 
+}
+
+td {
+    border: 1px solid var(--border);
+    padding: 0.5rem 1rem;
+}
+
+.info{
+    display: grid;
+    grid-template-columns: max-content max-content;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.stats{
+    display: flex;
+    flex-direction: column;
+}
+
+.date{
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.course h2{
+    margin: 0;
+    margin-bottom: 1rem; 
+}

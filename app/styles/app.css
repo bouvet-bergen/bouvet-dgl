@@ -1,24 +1,61 @@
-body{
-    color: var(--text); 
-    background: var(--background);
-    font-family: 'Inter', sans-serif;
-    font-size: 16px; 
-    display: grid; 
-    grid-template-columns: 1fr;
-    grid-template-rows: max-content 1fr;
-    height: 100vh;
+body {
+  color: var(--text);
+  background: var(--background);
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: max-content 1fr;
+  height: 100vh;
 }
 
-h1{
-    font-size: 3rem;  
-    line-height: 3.5rem;
+h1 {
+  font-size: 3rem;
+  line-height: 3.5rem;
 }
 
-h2{
-    font-size: 2.5rem; 
-    line-height: 3rem;
+h2 {
+  font-size: 2.5rem;
+  line-height: 3rem;
 }
 
 a {
-    color: var(--text); 
+  color: var(--text);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 4px solid var(--text);
+  padding: 0 2rem; 
+}
+
+.content{
+  padding: 3rem 2rem; 
+}
+
+.input-group{
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin-bottom: 0.5rem;
+}
+
+.input-group label{
+  font-weight: bold;
+}
+
+.input-group input{
+  border: 2px solid var(--border); 
+  border-radius: 0;
+ 
+}
+
+button{
+  border: 2px solid var(--border); 
+  background: none;
+  color: var(--text); 
+  padding: 0.25rem 0.75rem; 
+  cursor: pointer; 
 }

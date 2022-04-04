@@ -1,27 +1,43 @@
 import { PrismaClient } from "@prisma/client";
-import bcrypt from "bcryptjs";
+import { CreateCourse } from "../app/models/course.server";
 
 const prisma = new PrismaClient();
 
-async function seed() {
-  const email = "rachel@remix.run";
+const courses: CreateCourse[] = [
+  {
+    courseId: "25288",
+    parRating: 962,
+    ratingDiff: 12,
+    name: "Flaktveit Frisbeegolf - 18 hull 2022",
+    parScore: 58,
+  },
+  {
+    courseId: "19843",
+    parRating: 873,
+    ratingDiff: 12,
+    name: "Frekhaug | Badevika",
+    parScore: 54,
+  },
+  {
+    courseId: "26981",
+    parRating: 886,
+    ratingDiff: 14,
+    name: "Lynghaugparken --> 16 hull fra og med 29. mars",
+    parScore: 48,
+  },
+];
 
-  // cleanup the existing database
-  await prisma.user.delete({ where: { email } }).catch(() => {
-    // no worries if it doesn't exist yet
+const rounds = ["2049101", "2055949"];
+
+async function seed() {
+  courses.forEach(async (course) => {
+    await prisma.course.create({
+      data: course,
+    });
   });
 
-  const hashedPassword = await bcrypt.hash("racheliscool", 10);
-
-  const user = await prisma.user.create({
-    data: {
-      email,
-      password: {
-        create: {
-          hash: hashedPassword,
-        },
-      },
-    },
+  rounds.forEach(async (round) => {
+    await prisma.round.create({ data: { metrixId: round } });
   });
 
   console.log(`Database has been seeded. 🌱`);

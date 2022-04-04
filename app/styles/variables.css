@@ -1,5 +1,16 @@
-:root{
-    --text: #11133C; 
-    --background: #ffffff; 
-    --border: var(--text); 
+:root {
+  --text: #11133c;
+  --background: #ffffff;
+  --border: var(--text);
+
+  --ace: rgba(249, 168, 111, 1);
+  --eagle:rgba(6, 23, 189, 1);
+  --birdie: rgba(121, 254, 157, 1);
+  --par: rgba(242, 242, 242, 1);
+  --bogey: rgba(195, 139, 149, 1);
+  --dbogey: rgba(199, 94, 112, 1);
+  --awful: rgba(195, 49, 73, 1);
+
+  --lightText: #ffffff;
+  --darkText: #000000; 
 }

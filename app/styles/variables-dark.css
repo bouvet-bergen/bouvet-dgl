@@ -1,5 +1,5 @@
-:root{
-    --text: #ffffff; 
-    --background: #11133C; 
-    --border: var(--text); 
+:root {
+  --text: #ffffff;
+  --background: #11133c;
+  --border: var(--text);
 }

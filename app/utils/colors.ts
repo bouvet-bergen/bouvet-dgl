@@ -1,12 +1,19 @@
-export function getTrackColor(diff: number | undefined): {
+export function getTrackColor(
+  diff: number,
+  par: string
+): {
   background: string;
   text: string;
 } {
+  if (diff < 0 && parseInt(par) + diff === 1) {
+    return { background: "var(--ace)", text: "var(--darkText)" };
+  }
+
   switch (diff) {
     case undefined:
       return { background: "transparent", text: "var(--lightText)" };
     case -3:
-      return { background: "var(--ace)", text: "var(--lightText)" };
+      return { background: "var(--albatross)", text: "var(--albatross)" };
     case -2:
       return { background: "var(--eagle)", text: "var(--lightText)" };
     case -1:

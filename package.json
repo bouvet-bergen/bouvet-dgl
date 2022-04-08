@@ -8,7 +8,7 @@
     "build": "run-s build:*",
     "build:remix": "remix build",
     "dev": "run-p dev:*",
-    "dev:remix": "cross-env NODE_ENV=development binode --require ./mocks -- @remix-run/dev:remix dev",
+    "dev:remix": "cross-env NODE_ENV=development binode -- @remix-run/dev:remix dev",
     "format": "prettier --write .",
     "postinstall": "remix setup node",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",

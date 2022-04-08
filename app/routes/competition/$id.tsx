@@ -20,7 +20,6 @@ type LoaderData = {
 export const loader: LoaderFunction = async ({ params }) => {
   if (params?.id) {
     const competition = await fetchCompetition(params.id);
-    console.log(competition);
     if (competition.CourseID) {
       const course = await getCourse(competition.CourseID);
       return { competition, course };
@@ -36,8 +35,8 @@ export const loader: LoaderFunction = async ({ params }) => {
 export default function Index() {
   const { competition, course } = useLoaderData<LoaderData>();
 
-  function getTrackStyles(diff: number) {
-    const colors = getTrackColor(diff);
+  function getTrackStyles(diff: number, par: string) {
+    const colors = getTrackColor(diff, par);
     return { backgroundColor: colors.background, color: colors.text };
   }
 
@@ -106,7 +105,13 @@ export default function Index() {
               <td>{result.OrderNumber}</td>
               <td>{result.Name}</td>
               {result.PlayerResults.map((pRes, index) => (
-                <td style={getTrackStyles(pRes.Diff)} key={result.Name + index}>
+                <td
+                  style={getTrackStyles(
+                    pRes.Diff,
+                    competition.Tracks[index].Par
+                  )}
+                  key={result.Name + index}
+                >
                   {pRes.Result}
                 </td>
               ))}

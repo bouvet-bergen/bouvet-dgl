@@ -1,4 +1,67 @@
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr) );
+  gap: 2rem; 
+}
+
+
+.scores{
+  display: grid;
+  grid-template-columns: max-content 1fr 1fr;
+  padding: 1rem 2rem; 
+  gap: 1rem;
+}
+
+.scores span{
+  display: flex;
+  align-items: center;
+  gap: 1rem; 
+}
+
+.card{
+  background-color: var(--invertedBackground);
+  color: var(--background); 
+  border-radius: 2rem 0 2rem 0;
+  width: minmax(500px, max-content); 
+}
+
+.card .title{
+  background-color: var(--contrast);
+  color: var(--background); 
+  border-radius: 2rem 0 0 0;
+  margin: 0; 
+  padding: 2rem 6rem; 
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.competitions{
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.competitions a{
+  color: var(--background); 
+}
+
+
+
+.light-medal{
+  animation: medalAnim 2s infinite;
+  fill: red; 
+}
+
+@keyframes medalAnim {
+  0% {
+    x: 13;
+    y: 14;
+  }
+  100% {
+   x: 44;
+   y: 34;
+  }
 }

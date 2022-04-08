@@ -1,18 +1,21 @@
 import { useLoaderData, LoaderFunction, Link, LinksFunction } from "remix";
-import { useOptionalUser } from "~/utils";
+import { FaFlagCheckered, FaTrophy } from "react-icons/fa";
+
 import { fetchCompetitions } from "~/api/competitions.server";
 import { FrontPageData } from "~/models/competition.server";
 import { formatDate } from "~/utils/date";
 import stylesUrl from "~/styles/index.css";
+import React from "react";
+import { Medal } from "../components/Medal";
 
 export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: stylesUrl }];
 };
 
 export const loader: LoaderFunction = async () => {
-  const stuff = await fetchCompetitions();
+  const data = await fetchCompetitions();
 
-  return stuff;
+  return data;
 };
 
 export default function Index() {
@@ -21,25 +24,37 @@ export default function Index() {
   return (
     <main>
       <div className="container">
-        <div>
-          <h2>Leaderboard</h2>
-          <ul>
-            {scores.map((user) => (
-              <li key={user.UserId}>
-                {" "}
-                {user.UserName} {user.Rating}{" "}
-              </li>
+        <div className="card">
+          <h2 className="title">
+            <FaTrophy /> Toppliste
+          </h2>
+          <div className="scores">
+            {scores.map((user, index) => (
+              <React.Fragment key={user.UserId}>
+                <span className="medal">
+                  <Medal number={index + 1} />
+                  {user.UserName}{" "}
+                </span>
+                <span>{user.Rating}</span>
+                <span>
+                  {`${user.NumberOfRounds} runde${
+                    user.NumberOfRounds > 1 ? "r" : ""
+                  }`}
+                </span>
+              </React.Fragment>
             ))}
-          </ul>
+          </div>
         </div>
-        <div>
-          <h2>Rounds</h2>
-          <ul>
-            {competitions.map((competition) => (
+        <div className="card">
+          <h2 className="title">
+            <FaFlagCheckered /> Runder
+          </h2>
+          <ul className="competitions">
+            {competitions.map((competition, index) => (
               <li key={competition.ID}>
                 <Link to={`/competition/${competition.ID}`}>
-                  {competition.Name} - {formatDate(competition.Date)} -{" "}
-                  {competition.CourseName} - Number of players{" "}
+                  Runde {index + 1}: {formatDate(competition.Date)} -{" "}
+                  {competition.CourseName} - Spillere:
                   {competition.Results.length}
                 </Link>
               </li>

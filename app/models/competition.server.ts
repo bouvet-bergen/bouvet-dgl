@@ -63,6 +63,7 @@ export type Score = {
   Scores: Result[];
   UserName: string;
   Rating: number;
+  NumberOfRounds: number;
 };
 
 export type FrontPageData = {

@@ -45,6 +45,7 @@ async function calculateHighScore(
       (item) => item.UserId === currentItem.UserID
     );
     if (userIndex >= 0) {
+      acc[userIndex].NumberOfRounds = acc[userIndex].NumberOfRounds + 1;
       acc[userIndex].Scores.push(currentItem);
     } else {
       acc.push({
@@ -52,6 +53,7 @@ async function calculateHighScore(
         Scores: [currentItem],
         UserName: currentItem.Name,
         Rating: rating ?? 0,
+        NumberOfRounds: 1,
       });
     }
     return acc;

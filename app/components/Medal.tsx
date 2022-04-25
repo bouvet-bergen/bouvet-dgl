@@ -12,7 +12,7 @@ export function Medal({ number }: { number: number }) {
         transform="matrix(1, 0, 0, 0.9996, -37.474194, -43.264034)"
       ></circle>
       <rect
-        class="light-medal"
+        className="light-medal"
         x="11.643"
         y="7.482"
         width="2.324"

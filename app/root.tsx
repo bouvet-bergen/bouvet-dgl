@@ -8,6 +8,7 @@ import {
   Scripts,
   ScrollRestoration,
   useLoaderData,
+  Form,
 } from "remix";
 import type { LinksFunction, MetaFunction, LoaderFunction } from "remix";
 
@@ -74,7 +75,9 @@ export default function App() {
             <Allowed>
               <div className="user">
                 {user?.email}
-                <Link to="/logout">Logout</Link>
+                <Form action="/logout" method="post">
+                  <button type="submit">Logout</button>
+                </Form>
                 <Link to="adm/courses"> Courses </Link>
                 <Link to="adm/rounds"> Rounds </Link>
               </div>

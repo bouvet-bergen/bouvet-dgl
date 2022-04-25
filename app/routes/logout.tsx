@@ -3,7 +3,6 @@ import { redirect } from "remix";
 import { logout } from "~/session.server";
 
 export const action: ActionFunction = async ({ request }) => {
-  console.log(request);
   return await logout(request);
 };
 
